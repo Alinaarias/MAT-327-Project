@@ -15,4 +15,8 @@ hist(Hot$Duration, main = "Length of songs", xlab = "Duration (miliseconds)", yl
 
 hist(Hot$Tempo, main = "Tempo of songs", xlab = "Tempo (BPM)", ylab = "Amount of songs")
 
+Hot$Duration[Hot$Duration == 613026] <- duration_median
+hist(Hot$Duration, main = "Length of songs", xlab = "Duration (miliseconds)", ylab = "Amount of songs")
+
+
 
