@@ -1,0 +1,20 @@
+# Milestone 3
+
+library(readr)
+Hot <- read_csv("Hot100.csv", col_types = cols(Time_Signature = col_skip(),
+                                               Key = col_skip(), Speechiness = col_skip(),
+                                               Acousticness = col_skip(), Instrumentalness = col_skip(),
+                                               Liveness = col_skip()))
+View(Hot)
+
+Hot$Duration <- (Hot$Duration)/1000
+
+
+par(mar=c(10,5,4,4))
+barplot(table(Hot$Artist), main = "Artists", ylab = "Number of songs", las = 2)
+
+hist(Hot$Danceability, main = "Danceability of songs", xlab = "Danceability", ylab = "Amount of songs")
+
+hist(Hot$Duration, main = "Length of songs", xlab = "Duration (seconds)", ylab = "Amount of songs")
+
+hist(Hot$Tempo, main = "Tempo of songs", xlab = "Tempo (BPM)", ylab = "Amount of songs")
