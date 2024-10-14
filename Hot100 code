@@ -1,5 +1,5 @@
 library(readr)
-Hot <- read_csv("~/Hot100.csv", col_types = cols(Time_Signature = col_skip(),
+Hot <- read_csv("Hot100.csv", col_types = cols(Time_Signature = col_skip(),
                                                  Key = col_skip(), Speechiness = col_skip(),
                                                  Acousticness = col_skip(), Instrumentalness = col_skip(),
                                                  Liveness = col_skip()))
@@ -15,6 +15,7 @@ hist(Hot$Duration, main = "Length of songs", xlab = "Duration (miliseconds)", yl
 
 hist(Hot$Tempo, main = "Tempo of songs", xlab = "Tempo (BPM)", ylab = "Amount of songs")
 
-Hot$Duration[Hot$Duration == 613026] <- duration_median
-hist(Hot$Duration, main = "Length of songs", xlab = "Duration (miliseconds)", ylab = "Amount of songs")
+duration_median <- median(Hot$Duration)
+Hot$Duration[Hot$Duration == 613.026] <- duration_median
+hist(Hot$Duration, main = "Length of songs", xlab = "Duration (seconds)", ylab = "Amount of songs")
 
